@@ -42,7 +42,7 @@ class escornabot {
 	//procedimiento que devuelve valor enviado por bluetooth
 	int blueT(void);
 	//procedimiento que devuelve la versión de la librería
-	int escornabot::version(void);
+	int version(void);
   protected:
 
 
