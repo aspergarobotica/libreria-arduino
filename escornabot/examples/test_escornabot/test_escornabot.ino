@@ -1,19 +1,21 @@
 #include <escornabot.h>
 
 escornabot mirobot;
-boolean led1 = false;
+boolean led = false;
+/*boolean led1 = false;
 boolean led2 = false;
 boolean led3 = false;
 boolean led4 = false;
-boolean buzz = false;
+boolean buzz = false;*/
 
 void setup() {
   Serial.begin (9600);
+  pinmode(13, OUTPUT);
 }
 
 void loop() {
   //prueba de librería
-
+/*
   switch (mirobot.pushButton()) {
 
     case forward://si pulsamos el botón delantero, se enciende led delantero, se mueve 1/4 de vuelta hacia delante, y se apaga el led delantero
@@ -55,31 +57,25 @@ void loop() {
       }
 
   }
-
+*/
   switch (mirobot.blueT()) {//en función del caracter emitido por bluetooth hace varias acciones
-    case 'A':
+    case 'n':
       mirobot.drive (0.25, 12);
       break;
-    case 'R':
+    case 's':
       mirobot.drive (-0.25, 12);
       break;
-    case 'D':
+    case 'e':
       mirobot.turn (0.125, 12);
       break;
-    case 'I':
+    case 'w':
       mirobot.turn (-0.125, 12);
       break;
-    case '1':
-      /*led1 = !led1;
-      if (led1) {
-        mirobot.ledON(forward);
-      }
-      else {
-        mirobot.ledOFF(forward);
-      }*/
-      invierteLed(forward);
+   case 'l':
+      led = !led;
+      digitalWrite(13, led);
       break;
-    case '2':
+   /* case '2':
       led2 = !led2;
       if (led2) {
         mirobot.ledON(left);
@@ -114,7 +110,7 @@ void loop() {
       else {
         mirobot.buzzOFF();
       }
-      break;
+      break;*/
       //default:
       // statements
   }
